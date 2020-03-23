@@ -27,6 +27,8 @@
 
 #include "Adafruit_TinyUSB_Core.h"
 
+#if CFG_TUD_MSC
+
 class Adafruit_USBD_MSC : Adafruit_USBD_Interface {
 public:
   typedef int32_t (*read_callback_t)(uint32_t lba, void *buffer,
@@ -108,5 +110,7 @@ private:
                                     uint8_t *buffer, uint32_t bufsize);
   friend void tud_msc_write10_complete_cb(uint8_t lun);
 };
+
+#endif
 
 #endif /* ADAFRUIT_USBD_MSC_H_ */

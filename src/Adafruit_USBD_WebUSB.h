@@ -27,6 +27,8 @@
 
 #include "Adafruit_TinyUSB_Core.h"
 
+#if CFG_TUD_VENDOR
+
 #define WEBUSB_URL_DEF(_name, _scheme, _url)                                   \
   struct TU_ATTR_PACKED {                                                      \
     uint8_t bLength;                                                           \
@@ -77,5 +79,7 @@ private:
   tud_vendor_control_complete_cb(uint8_t rhport,
                                  tusb_control_request_t const *request);
 };
+
+#endif
 
 #endif /* ADAFRUIT_USBD_WEBUSB_H_ */
