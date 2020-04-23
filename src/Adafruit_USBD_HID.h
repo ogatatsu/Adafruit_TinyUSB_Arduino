@@ -27,6 +27,8 @@
 
 #include "Adafruit_TinyUSB_Core.h"
 
+#if CFG_TUD_HID
+
 class Adafruit_USBD_HID : Adafruit_USBD_Interface {
 public:
   typedef uint16_t (*get_report_callback_t)(uint8_t report_id,
@@ -93,5 +95,7 @@ private:
                                     uint8_t const *buffer, uint16_t bufsize);
   friend uint8_t const *tud_hid_descriptor_report_cb(void);
 };
+
+#endif
 
 #endif /* ADAFRUIT_USBD_HID_H_ */
